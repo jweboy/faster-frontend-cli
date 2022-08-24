@@ -5,9 +5,8 @@ import { Env, Mode, WebpackConfig } from '../../typings/webpack';
 import paths from '../paths';
 
 export const setStyleLoaders = (config: Config, env: Env) => {
-  // TODO: 当前 CSS 拆分打包有样式次序问题导致样式覆盖，先暂时用注入 style 的方式
-  const isDevEnv = true;
-  // const isDevEnv = env !== 'prod';
+  // const isDevEnv = true;
+  const isDevEnv = env !== 'prod';
   const isDevMode = process.env.NODE_ENV === 'development';
 
   // 解析常规 *.css 文件（包括业务文件、node_modules文件）
@@ -24,7 +23,7 @@ export const setStyleLoaders = (config: Config, env: Env) => {
   config.module
     .rule('appLess')
     .test(lessRegexp)
-    // 外部项目（如：新电商和）部分依赖引用了 antd，针对ts中的 antd 按需暂无，因此这里做一个less兼容
+    // 外部项目部分依赖引用了 antd，针对ts中的 antd 按需暂无，因此这里做一个less兼容
     // .include.add(paths.src)
     // .end()
     .exclude.add(lessModuleRegexp)
