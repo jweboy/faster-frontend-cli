@@ -4,7 +4,7 @@ import { relative } from 'path';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import os from 'os';
 import { Env } from 'src/typings/webpack';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import paths from '../paths';
 import getWebpackConfig from './core';
 import terserOptions from '../options/terser';
@@ -58,7 +58,7 @@ config.plugin('hashModuleIds').use(webpack.ids.HashedModuleIdsPlugin, [
   },
 ]);
 
-config.plugin('BundleAnalyzerPlugin').use(new BundleAnalyzerPlugin());
+// config.plugin('BundleAnalyzerPlugin').use(new BundleAnalyzerPlugin());
 
 // 关闭性能提示
 config.performance.hints(false);
@@ -69,31 +69,29 @@ config.optimization.set('emitOnErrors', true);
 // 如果模块已经包含在所有父级模块中，告知 webpack 从 chunk 中检测出这些模块或移除这些模块，但是这个配置会削减 webapck 的性能表现，而且将会在下一个主要发布版本中，在 生产 模式下会被禁用，因此这里关闭它。
 config.optimization.removeAvailableModules(false);
 
-// TODO: css抽离拆分有问题，临时注释
 // 压缩JS代码
-// config.optimization
-//   .minimize(true)
-//   .minimizer('terser')
-//   .use(require.resolve('terser-webpack-plugin'), [terserOptions]);
+config.optimization
+  .minimize(true)
+  .minimizer('terser')
+  .use(require.resolve('terser-webpack-plugin'), [terserOptions]);
 
-// config.plugin('MiniCssExtractPlugin').use(
-//   new MiniCssExtractPlugin({
-//     filename: `css/[name].[contenthash:8].css`,
-//     chunkFilename: `css/[name].[contenthash:8].chunk.css`,
-//     ignoreOrder: true, // 禁用 css order 警告
-//   }),
-// );
+config.plugin('MiniCssExtractPlugin').use(
+  new MiniCssExtractPlugin({
+    filename: `css/[name].[contenthash:8].css`,
+    chunkFilename: `css/[name].[contenthash:8].chunk.css`,
+    ignoreOrder: true, // 禁用 css order 警告
+  }),
+);
 
-// TODO: css抽离拆分有问题，临时注释
-// // 压缩CSS代码
-// config.optimization
-//   .minimize(true)
-//   .minimizer('css')
-//   .use(
-//     new CssMinimizerPlugin({
-//       parallel: cpu, // 多进程并发执行，默认执行数为当前 CPU 数量 - 1
-//     }),
-//   );
+// 压缩CSS代码
+config.optimization
+  .minimize(true)
+  .minimizer('css')
+  .use(
+    new CssMinimizerPlugin({
+      parallel: cpu, // 多进程并发执行，默认执行数为当前 CPU 数量 - 1
+    }),
+  );
 
 const buildConfig = config.toConfig();
 

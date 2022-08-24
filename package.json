@@ -1,10 +1,10 @@
 {
-  "name": "fft-cli",
+  "name": "@jweboy/cli",
   "version": "0.1.0",
   "license": "MIT",
   "homepage": "",
   "author": "jweboy",
-  "repository": "",
+  "repository": "https://github.com/jweboy/fft-cli.git",
   "engines": {
     "node": ">=10.14.0"
   },
@@ -34,6 +34,7 @@
     "eslint-plugin-prettier": "^3.2.0",
     "husky": "^4.3.0",
     "nodemon": "^2.0.12",
+    "terser-webpack-plugin": "^5.3.5",
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "dependencies": {
