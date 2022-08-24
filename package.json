@@ -1,10 +1,10 @@
 {
-  "name": "fft-cli",
+  "name": "@jweboy/cli",
   "version": "0.1.0",
   "license": "MIT",
   "homepage": "",
   "author": "jweboy",
-  "repository": "",
+  "repository": "https://github.com/jweboy/fft-cli.git",
   "engines": {
     "node": ">=10.14.0"
   },
