@@ -1,6 +1,6 @@
-# web-cli
+# fft-cli
 
-`web-cli` 是针对B端后台系统的通用脚手架工具。
+`fft-cli` 是针对B端后台系统的通用脚手架工具。
 
 ## 🌟 功能
 
@@ -88,9 +88,9 @@ npm install
 npm run bootstrap // 如果需要开发模板项目就运行这个脚本
 
 // 执行开发脚本
-npm link // 在全局 node_modules 中创建文件符号软链，这样就能全局访问 web-cli 命令了
+npm link // 在全局 node_modules 中创建文件符号软链，这样就能全局访问 fft-cli 命令了
 npm run dev:watch // 执行自动编译并监听文件变化自动更新脚本
-web-cli create // 然后新开一个命令面板就可以执行相关操作开发了
+fft-cli create // 然后新开一个命令面板就可以执行相关操作开发了
 
 // 发布版本
 npm login // 首次执行 publish 之前需要登录，账号密码是内部npm仓库注册的账密
@@ -106,9 +106,9 @@ yarn
 yarn bootstrap // 如果需要开发模板项目就运行这个脚本
 
 // 执行开发脚本
-yarn global add web-cli // 在全局 node_modules 中创建文件符号软链，这样就能全局访问 web-cli 命令了
+yarn global add fft-cli // 在全局 node_modules 中创建文件符号软链，这样就能全局访问 fft-cli 命令了
 yarn watch:dev // 执行自动编译并监听文件变化自动更新脚本
-web-cli -c // 然后新开一个命令面板就可以执行相关操作开发了
+fft-cli -c // 然后新开一个命令面板就可以执行相关操作开发了
 ```
 
 ## ❗ 注意点
