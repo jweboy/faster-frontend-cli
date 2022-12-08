@@ -10,7 +10,7 @@ const paths = {
   dist: getRuntimeProjectPath('dist'),
   configFile: getRuntimeProjectPath('sl.config.js'),
   nodeModules: getRuntimeProjectPath('node_modules'),
-  postcss: getPathByCurrentDirectory('../../postcss.config.js'),
+  postcss: getRuntimeProjectPath('postcss.config.js'),
   cliNodeModules: getPathByCurrentDirectory('../../node_modules'),
   template: getPathByCurrentDirectory('../../public/index.html'),
   errorIcon: getPathByCurrentDirectory('../../public/error.png'),

@@ -1,10 +1,13 @@
 {
-  "name": "@jweboy/cli",
-  "version": "0.1.0",
+  "name": "fft-cli",
+  "version": "0.2.1",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/jweboy/fft-cli#readme",
   "author": "jweboy",
-  "repository": "https://github.com/jweboy/fft-cli.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jweboy/fft-cli.git"
+  },
   "engines": {
     "node": ">=10.14.0"
   },
@@ -14,9 +17,8 @@
     "postcss.config.js"
   ],
   "main": "dist/bin/main.js",
-  "bin": "dist/bin/main.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "bin": {
+    "fft-cli": "dist/bin/main.js"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.5",
@@ -104,5 +106,8 @@
     "dev:app": "cd ./templates/app && npm start",
     "dev": "ts-node ./bin/cli.ts",
     "prettier": "prettier --write *.js"
+  },
+  "bugs": {
+    "url": "https://github.com/jweboy/fft-cli/issues"
   }
 }
