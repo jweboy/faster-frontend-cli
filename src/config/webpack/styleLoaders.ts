@@ -11,13 +11,21 @@ export const setStyleLoaders = (config: Config, env: Env) => {
 
   // 解析常规 *.css 文件（包括业务文件、node_modules文件）
   config.module
-    .rule('nodeModulesCss')
+    .rule('normalCssFile')
     .test(cssRegexp)
     .use(isDevEnv ? 'style-loader' : 'miniCssExtract')
     .loader(isDevEnv ? require.resolve('style-loader') : MiniCssExtractPlugin.loader)
     .end()
     .use('css-loader')
-    .loader(require.resolve('css-loader'));
+    .loader(require.resolve('css-loader'))
+    .end()
+    .use('postcss-loader')
+    .loader(require.resolve('postcss-loader'))
+    .options({
+      postcssOptions: {
+        config: paths.postcss, // 默认 postcss 配置
+      },
+    });
 
   // 解析业务中的 *.less 文件
   config.module
@@ -55,6 +63,7 @@ export const setStyleLoaders = (config: Config, env: Env) => {
     .end()
     .exclude.add(paths.nodeModules)
     .end();
+
   config.module
     .rule('cssModules')
     .test(/\.module\.less$/)
