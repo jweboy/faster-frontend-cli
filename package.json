@@ -79,7 +79,7 @@
     "ora": "^5.1.0",
     "postcss": "^8.3.1",
     "postcss-loader": "^5.3.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.0.0",
     "prettier": "^1.15.3",
     "process": "^0.11.10",
     "qs": "^6.9.6",
