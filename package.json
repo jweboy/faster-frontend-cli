@@ -95,7 +95,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.38.1",
     "webpack-chain": "^6.5.1",
-    "webpack-dev-server": "4.6.0"
+    "webpack-dev-server": "4.8.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap && npm install",
